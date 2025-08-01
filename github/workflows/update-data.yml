@@ -1,0 +1,54 @@
+name: Atualizar Dados do Casamento
+
+on:
+  repository_dispatch:
+    types: [update_convidados]
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+        
+    - name: Update JSON file
+      run: |
+        # Script para processar o payload e atualizar o arquivo JSON
+        echo "const fs = require('fs');
+        const payload = JSON.parse(process.argv[1]);
+        const filePath = 'data/convidados.json';
+        
+        let convidados = [];
+        if (fs.existsSync(filePath)) {
+          convidados = JSON.parse(fs.readFileSync(filePath));
+        }
+        
+        if (payload.action === 'update') {
+          const index = convidados.findIndex(c => c.id === payload.convidado.id);
+          if (index !== -1) {
+            convidados[index] = payload.convidado;
+          } else {
+            convidados.push(payload.convidado);
+          }
+        } else if (payload.action === 'delete') {
+          convidados = convidados.filter(c => c.id !== payload.id);
+        }
+        
+        fs.writeFileSync(filePath, JSON.stringify(convidados, null, 2));
+        " > update.js
+        
+        node update.js "${{ toJson(github.event.client_payload) }}"
+        
+    - name: Commit and push changes
+      run: |
+        git config --global user.name "GitHub Actions"
+        git config --global user.email "actions@github.com"
+        git add data/convidados.json
+        git commit -m "Atualização automática da lista de convidados"
+        git push
