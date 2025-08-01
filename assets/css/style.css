@@ -1,0 +1,52 @@
+/* Estilos gerais */
+body {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f7f5;
+}
+
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 5rem 1rem;
+}
+
+/* Estilos específicos para a página de convite */
+.convite-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.rsvp-section {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: #f5f5f5;
+    border-radius: 8px;
+}
+
+.rsvp-options {
+    margin: 1rem 0;
+}
+
+.rsvp-options label {
+    display: block;
+    margin: 0.5rem 0;
+    cursor: pointer;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .convite-container {
+        padding: 1rem;
+    }
+}
