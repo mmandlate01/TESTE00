@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convite para o Casamento de Milton & Teresa</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="convite-container">
+        <header class="convite-header">
+            <h1>Milton & Teresa</h1>
+            <p>Convidam para a celebração do seu casamento</p>
+        </header>
+        
+        <div class="convite-content">
+            <div class="convite-details">
+                <h2 id="convite-nome">Prezado Convidado,</h2>
+                <p>Temos o prazer de convidar você para nosso casamento que será realizado no dia:</p>
+                
+                <div class="info-box">
+                    <p><strong>Data:</strong> 14 de Março de 2026</p>
+                    <p><strong>Horário:</strong> 15:00</p>
+                    <p><strong>Local:</strong> Salão de Eventos Shalom, Bairro T3</p>
+                    <p><strong>Sua mesa:</strong> <span id="convite-mesa">--</span></p>
+                </div>
+                
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12345!2d32.123456!3d-25.123456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDA3JzI0LjQiUyAzMsKwMDcnMjQuNCJF!5e0!3m2!1sen!2smz!4v1234567890" 
+                            width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+            
+            <div class="rsvp-section">
+                <h3>Confirmação de Presença</h3>
+                <p>Por favor, confirme sua presença até 28 de Fevereiro de 2026</p>
+                
+                <form id="rsvp-form">
+                    <div class="rsvp-options">
+                        <label>
+                            <input type="radio" name="rsvp" value="confirmado" required>
+                            <span>Com prazer, estarei presente!</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="rsvp" value="recusado">
+                            <span>Infelizmente não poderei comparecer</span>
+                        </label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="mensagem">Mensagem para os noivos (opcional):</label>
+                        <textarea id="mensagem" rows="3"></textarea>
+                    </div>
+                    
+                    <button type="submit">Enviar Confirmação</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/github-api.js"></script>
+</body>
+</html>
